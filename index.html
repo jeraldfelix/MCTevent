@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+
+            height: 60vh;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .hero-container {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            gap: rem;
+        }
+
+        .hero-card {
+            flex: 1;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            background: #007bff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            min-width: 100px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .countdown-item span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-item p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-content {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .detail-card {
+            background: #f5f5f5;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .register-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .register-btn:hover {
+            background: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500&display=swap');
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="hero-content">
+            <h1 style="color: #f1f8ff;">MCT Tamil Connect 2025</h1>
+            <center><p style="color: #f1f8ff;">Join us for an unforgettable experience</p></center>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h2>Event Details</h2>
+        <div class="event-details">
+            <div class="detail-card">
+                <h3>When & Where</h3><br>
+                <p>Date: February 8, 2025</p>
+                <p>Time: 11:00 AM</p>
+                <p>Location: MS Teams online</p>
+            </div>
+            <div class="detail-card">
+                <h3>What to Expect</h3><br>
+                <p>• Interactive sessions</p>
+                <p>• Networking opportunities</p>
+                <p>• Amazing speakers</p>
+            </div>
+            <div class="detail-card">
+                <h3>Registration</h3><br>
+                <p>Limited seats available registor before <br>1st of February 2025</p>
+                <a href="https://forms.office.com/r/suNhWL3BtX?origin=lprLink" class="register-btn">Register Now</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Set the date we're counting down to
+        const countDownDate = new Date("Feb 8, 2025 11:00:00").getTime();
+
+        // Update the countdown every 1 second
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Calculate days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the results
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+            // If the countdown is finished, display expired message
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "EVENT HAS STARTED";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
