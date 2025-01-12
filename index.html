@@ -143,6 +143,35 @@
         }
 
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@400;500&display=swap');
+
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .footer p {
+            margin: 0.5rem 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: underline;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -172,7 +201,7 @@
     </div>
 
     <div class="main-content">
-        <h2>Event Details</h2>
+      <center>  <h2>Event Details</h2></center>
         <div class="event-details">
             <div class="detail-card">
                 <h3>When & Where</h3><br>
@@ -182,7 +211,7 @@
             </div>
             <div class="detail-card">
                 <h3>What to Expect</h3><br>
-                <p>• Interactive sessions</p>
+                <p>• Announcements</p>
                 <p>• Networking opportunities</p>
                 <p>• Amazing speakers</p>
             </div>
@@ -193,7 +222,15 @@
             </div>
         </div>
     </div>
+    
 
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MCT Tamil Connect. All rights reserved.</p>
+</footer>
+</body>
+</html>
     <script>
         // Set the date we're counting down to
         const countDownDate = new Date("Feb 8, 2025 11:00:00").getTime();
